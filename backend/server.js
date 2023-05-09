@@ -36,6 +36,7 @@ const scheduleRequest = require('./routes/scheduleRequest');
 const OTRouter = require('./routes/overTime');
 const PaymentRouter = require('./routes/payment');
 const SupplierRouter = require('./routes/supplier');
+const GreenHouseRouter = require('./routes/greenHouse');
 
 
 app.use('/employee', employeeRouter);
@@ -53,6 +54,7 @@ app.use('/scheduleRequest',scheduleRequest);
 app.use('/ot',OTRouter);
 app.use('/payment',PaymentRouter);
 app.use('/supplier',SupplierRouter);
+app.use('/greenHouse',GreenHouseRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port:-${port}`);
