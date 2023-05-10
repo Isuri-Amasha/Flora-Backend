@@ -10,6 +10,9 @@ const customerSchema = new Schema({
     email : {type : String, required : true},
     contactNo : {type : String,unique : true, required : true},
     address : {type : String, required : true},
+    userRole : {type : String, required : true},
+    password : {type : String, required : true},
+   
     
      
 },{

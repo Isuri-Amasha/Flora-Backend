@@ -1,7 +1,7 @@
 const Customer = require("../models/customer.model");
 
 const addCustomer = async (req, res) => {
-    const { fullName, dob, NIC,email,contactNo, address } =
+    const { fullName, dob, NIC,email,contactNo, address,userRole,password } =
       req.body;
   
     const customer = new Customer({
@@ -11,7 +11,9 @@ const addCustomer = async (req, res) => {
         NIC,
         email,
         contactNo,
-        address
+        address,
+        userRole,
+        password
     });
   
     await customer
@@ -48,6 +50,8 @@ const addCustomer = async (req, res) => {
         existingCustomer.email = req.body.email;
         existingCustomer.contactNo = req.body.contactNo;
         existingCustomer.address = req.body.address;
+        existingCustomer.userRole = req.body.userRole;
+        existingCustomer.password = req.body.password;
        
         
         existingCustomer
