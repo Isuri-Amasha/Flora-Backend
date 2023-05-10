@@ -39,7 +39,7 @@ const addSupplier = async (req, res) => {
   };
 
   const updateSupplier = async (req, res) => {
-    Employee.findByIdAndUpdate(req.params.id)
+    Supplier.findByIdAndUpdate(req.params.id)
       .then((existingSupplier) => {
         existingSupplier.supID = req.body.supID;
         existingSupplier.fullName = req.body.fullName;
