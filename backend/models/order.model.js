@@ -5,19 +5,17 @@ const Schema = mongoose.Schema;
 const orderSchema = new Schema({
     //order id is auto generated
     customer : {type : String, required : true},
-    item1 : {type : String,required : true},
-    size1 : {type : String,required : true},
-    quantity1 : {type : String,required : true},
-    item2: {type :String},
-    size2 : {type : String},
-    quantity2 : {type : String},
-    item3 : {type : String},
-    size3 : {type : String},
-    quantity3 : {type : String},
+    item : {type : String,required : true},
+   
+    quantity : {type : String,required : true},
+    
     orderFor : {type : String, required : true}, //delivery, pickup
     deliveryAddress : {type : String},
     amount : {type : String, required : true},
-    orderStatus : {type : String,} //order taken, order processing, order delivering, order completed
+    orderStatus : {type : String,}, //order taken, order processing, order delivering, order completed
+    paymentStatus : {type : String,}, //order taken, order processing, order delivering, order completed
+    bankName : {type : String,}, //order taken, order processing, order delivering, order completed
+    accName : {type : String,} //order taken, order processing, order delivering, order completed
     
      
 },{

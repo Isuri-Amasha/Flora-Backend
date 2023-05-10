@@ -1,24 +1,22 @@
 const Order = require("../models/order.model");
 
 const addOrder = async (req, res) => {
-    const { customer, item1, size1, quantity1, item2, size2,quantity2,item3, size3,quantity3,orderFor, deliveryAddress,amount, orderStatus } =
+    const { customer, item, quantity, orderFor, deliveryAddress,amount, orderStatus, paymentStatus, bankName, accName } =
       req.body;
   
     const order = new Order({
         customer,
-        item1,
-        size1,
-        quantity1,
-        item2,
-        size2,
-        quantity2,
-        item3,
-        size3,
-        quantity3,
+        item,
+     
+        quantity,
+       
         orderFor,
         deliveryAddress,
         amount,
-        orderStatus
+        orderStatus,
+        paymentStatus,
+        bankName,
+        accName
     });
   
     await order
@@ -49,19 +47,17 @@ const addOrder = async (req, res) => {
     Order.findByIdAndUpdate(req.params.id)
       .then((existingOrder) => {
         existingOrder.customer = req.body.customer;
-        existingOrder.item1 = req.body.item1;
-        existingOrder.size1 = req.body.size1;
-        existingOrder.quantity1 = req.body.quantity1;
-        existingOrder.item2 = req.body.item2;
-        existingOrder.size2 = req.body.size2;
-        existingOrder.quantity2 = req.body.quantity2;
-        existingOrder.item3 = req.body.iteme3;
-        existingOrder.size3 = req.body.size3;
-        existingOrder.quantity3 = req.body.quantity3;
+        existingOrder.item = req.body.item;
+      
+        existingOrder.quantity = req.body.quantity;
+        
         existingOrder.orderFor = req.body.orderFor;
         existingOrder.deliveryAddress = req.body.deliveryAddress;
         existingOrder.amount = req.body.amount;
         existingOrder.orderStatus = req.body.orderStatus;
+        existingOrder.paymentStatus = req.body.paymentStatus;
+        existingOrder.bankName = req.body.bankName;
+        existingOrder.accName = req.body.accName;
         
         existingOrder
           .save()
