@@ -3,6 +3,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const multer = require('multer');
 const upload = multer({dest:'upload/'})
+const {readdirSync} = require('fs')
 
 require('dotenv').config();
 
@@ -21,10 +22,9 @@ connection.once('open', () => {
     console.log("Mongo DB connection established successfully");
 })
 
+readdirSync('./routes').map((route) => app.use('/api/v1', require('./routes/' + route)))
 const employeeRouter = require('./routes/employee');
-
 const customerRouter = require('./routes/customer');
-
 const OrderRouter = require('./routes/order');
 const InventoryRouter = require('./routes/inventory');
 const InventoryOrdersRouter = require('./routes/inventoryOrders');
